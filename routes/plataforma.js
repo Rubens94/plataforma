@@ -6,7 +6,8 @@ const {
     getPlataforma,
     postPlataforma,
     getPlataformaById,
-    putPlataformaById
+    putPlataformaById,
+    deletePlataformaById
 } = require('../controller/plataforma');
 
 const router = Router();
@@ -30,5 +31,7 @@ router.put('/:id', [
 ],
 revisarValidaciones, 
 putPlataformaById);
+
+router.delete('/:id', deletePlataformaById);
 
 module.exports = router;

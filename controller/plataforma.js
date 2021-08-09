@@ -47,9 +47,22 @@ const putPlataformaById = async(req, res = respone) => {
     }
 }
 
+const deletePlataformaById = async(req, res = respone) => {
+
+    const { id } = req.params;
+
+    const plataforma = await Plataforma.findByIdAndDelete(id);
+
+    res.status(200).json({
+        msg: 'Plataforma eliminada',
+        plataforma
+    })
+}
+
 module.exports = {
     getPlataforma,
     postPlataforma,
     getPlataformaById,
-    putPlataformaById
+    putPlataformaById,
+    deletePlataformaById
 }
