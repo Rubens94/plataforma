@@ -4,7 +4,8 @@ const { revisarValidaciones } = require('../middlewares/revisarValidaciones');
 
 const {
     getPlataforma,
-    postPlataforma
+    postPlataforma,
+    getPlataformaById
 } = require('../controller/plataforma');
 
 const router = Router();
@@ -18,5 +19,7 @@ router.post('/', [
 ],
 revisarValidaciones, 
 postPlataforma);
+
+router.get('/:id', getPlataformaById);
 
 module.exports = router;

@@ -23,7 +23,17 @@ const postPlataforma = async(req, res = response) => {
     }
 }
 
+const getPlataformaById = async(req, res = response) => {
+
+    const { id } = req.params;
+
+    const plataforma = await Plataforma.findById(id);
+
+    res.status(200).json(plataforma);
+}
+
 module.exports = {
     getPlataforma,
-    postPlataforma
+    postPlataforma,
+    getPlataformaById
 }
