@@ -32,8 +32,24 @@ const getPlataformaById = async(req, res = response) => {
     res.status(200).json(plataforma);
 }
 
+const putPlataformaById = async(req, res = respone) => {
+    
+    const { id } = req.params;
+    const body = req.body;
+    
+    try{
+
+        const plataforma = await Plataforma.findByIdAndUpdate( id, body, { new: true } ); 
+
+        res.status(200).json(plataforma);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+}
+
 module.exports = {
     getPlataforma,
     postPlataforma,
-    getPlataformaById
+    getPlataformaById,
+    putPlataformaById
 }
