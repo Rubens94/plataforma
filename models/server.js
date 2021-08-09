@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const { createServer } = require('http');
 
+const { dbConnection } = require('../database/config');
 class Server {
 
     constructor() {
@@ -14,9 +15,15 @@ class Server {
             plataforma: '/api/plataforma'
         }
 
+        this.dbConnection();
+
         this.middlewares();
 
         this.routes();
+    }
+
+    async dbConnection() {
+        await dbConnection()
     }
 
     middlewares() {
