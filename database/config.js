@@ -2,9 +2,13 @@ const mongoose = require('mongoose');
 
 const dbConnection = async() => {
 
+    const { MONGO_DB, MONGO_DB_TEST, NODE_ENV } = process.env;
+
+    const db = NODE_ENV === 'test' ? MONGO_DB_TEST : MONGO_DB;
+    
     try{
 
-        await mongoose.connect( process.env.MONGO_DB, {
+        await mongoose.connect( db, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true,

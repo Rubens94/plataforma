@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const { createServer } = require('http');
+require('dotenv').config();
 
 const { dbConnection } = require('../database/config');
 class Server {
@@ -44,5 +45,6 @@ class Server {
         })
     }
 }
+
 
 module.exports = Server;

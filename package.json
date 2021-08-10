@@ -4,20 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./app.js",
-    "dev": "nodemon ./app"
+    "start": "cross-env NODE_ENV=production node ./app.js",
+    "dev": "cross-env NODE_ENV=development nodemon ./app",
+    "test": "cross-env NODE_ENV=test jest --verbose --silent --detectOpenHandles --forceExit --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-validator": "^6.12.1",
     "mongoose": "^5.13.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.12",
+    "supertest": "^6.1.4"
   }
 }
