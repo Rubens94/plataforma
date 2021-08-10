@@ -1,4 +1,5 @@
 # Api rest para crear plataformas
+## CRUD básico para crear modelo de empresas con NodeJS, MongoDB y pruebas unitarias.
 
 ## instalar modulos de node
 ### npm install
